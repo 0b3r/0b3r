@@ -1,0 +1,19 @@
+<header class="site-header">
+
+  <a href="/" class="site-home-link">
+    {{ mainNav.title }}
+  </a>
+
+  <nav class="site-nav">
+    <ul class="site-nav-list">
+      <li class="site-nav-list-item" 
+          ng-repeat="menuItem in mainNav.menu">
+        <a href="#" class="site-nav-list-item-link">
+          {{ menuItem.name }}
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+
+</header>

@@ -34,6 +34,7 @@
     "karma-webpack": "1.7.0",
     "mocha": "2.5.3",
     "ng-annotate-loader": "^0.1.0",
+    "node-sass": "^3.8.0",
     "npm-run-all": "2.2.0",
     "opt-cli": "1.4.2",
     "raw-loader": "^0.5.1",

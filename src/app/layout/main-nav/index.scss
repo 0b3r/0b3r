@@ -1,0 +1,26 @@
+@import '~styles/bourbon/bourbon';
+@import '~styles/base/base';
+
+.site-header {
+  background-color: $nav-blue;
+  color: $light-gray;
+  @include size(100px 100%);
+
+  .site-home-link {
+    color: $light-gray;
+  }
+
+  .site-nav {
+
+    .site-nav-list {
+      
+      .site-nav-list-item {
+
+        .site-nav-list-item-link {
+          color: $light-gray;
+        }
+      }
+    }
+
+  }
+}

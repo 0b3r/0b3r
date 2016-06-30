@@ -1,5 +1,5 @@
 const webpack = require('webpack')
-const {resolve} = require('path')
+const { resolve, join } = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = env => {
@@ -20,6 +20,14 @@ module.exports = env => {
       filename: 'bundle.[name].[chunkhash].js',
       path: resolve(__dirname, 'dist'),
       pathinfo: !env.prod,
+    },
+    resolve: {
+      modulesDirectories: ['node_modules'],
+      alias: {
+        images: join(__dirname, 'src', 'assets', 'images'),
+        videos: join(__dirname, 'src', 'assets', 'videos'),
+        styles: join(__dirname, 'src', 'assets', 'styles')
+      }
     },
     context: resolve(__dirname, 'src'),
     devtool: env.prod ? 'source-map' : 'eval',
