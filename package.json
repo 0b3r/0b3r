@@ -1,0 +1,71 @@
+{
+  "private": true,
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-ui-router": "^0.3.1",
+    "jquery": "^3.0.0",
+    "lodash": "^4.13.1"
+  },
+  "devDependencies": {
+    "babel": "6.5.2",
+    "babel-core": "6.9.1",
+    "babel-eslint": "6.0.4",
+    "babel-loader": "6.2.4",
+    "babel-plugin-__coverage__": "11.0.0",
+    "babel-preset-es2015-webpack": "6.4.1",
+    "babel-preset-stage-2": "6.5.0",
+    "chai": "3.5.0",
+    "cpy-cli": "1.0.1",
+    "css-loader": "0.23.1",
+    "eslint": "2.13.0",
+    "eslint-config-kentcdodds": "6.2.1",
+    "eslint-import-resolver-webpack": "0.3.0",
+    "eslint-loader": "1.3.0",
+    "eslint-plugin-import": "1.8.1",
+    "ghooks": "1.2.4",
+    "html-webpack-plugin": "^2.21.0",
+    "istanbul": "0.4.3",
+    "karma": "0.13.22",
+    "karma-chai": "0.1.0",
+    "karma-chrome-launcher": "1.0.1",
+    "karma-coverage": "1.0.0",
+    "karma-mocha": "1.0.1",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "karma-webpack": "1.7.0",
+    "mocha": "2.5.3",
+    "ng-annotate-loader": "^0.1.0",
+    "npm-run-all": "2.2.0",
+    "opt-cli": "1.4.2",
+    "raw-loader": "^0.5.1",
+    "rimraf": "2.5.2",
+    "sass-loader": "^4.0.0",
+    "style-loader": "0.13.1",
+    "webpack": "2.1.0-beta.13",
+    "webpack-dev-server": "2.0.0-beta",
+    "webpack-validator": "2.1.3"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "opt --in pre-commit --exec \"npm run validate\""
+    }
+  },
+  "scripts": {
+    "test": "karma start",
+    "check-coverage": "istanbul check-coverage --statements 23 --branches 5 --functions 0 --lines 24",
+    "watch:test": "npm test -- --auto-watch --no-single-run",
+    "validate": "npm-run-all --parallel validate-webpack:* lint test --serial check-coverage",
+    "validate-webpack:dev": "webpack-validator webpack.config.js --env.dev",
+    "validate-webpack:prod": "webpack-validator webpack.config.js --env.prod",
+    "clean-dist": "rimraf dist",
+    "copy-files": "cpy src/favicon.ico dist",
+    "clean-and-copy": "npm run clean-dist && npm run copy-files",
+    "prestart": "npm run clean-and-copy",
+    "start": "webpack-dev-server --env.dev --content-base dist",
+    "prebuild": "npm run clean-and-copy",
+    "prebuild:prod": "npm run clean-and-copy",
+    "build": "webpack --env.dev",
+    "build:prod": "webpack --env.prod",
+    "lint": "eslint .",
+    "setup": "npm install && npm run validate"
+  }
+}
